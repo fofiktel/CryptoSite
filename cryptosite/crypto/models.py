@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class CryptoList(models.Model):
+class CryptoCurrency(models.Model):
     CurrencyFullName = models.CharField(max_length=40)
     CurrencyAbbreviatedName = models.CharField(max_length=10)
     CostInUsd = models.FloatField(default=0)
