@@ -6,13 +6,14 @@
 </head>
 <body>
 {% if crypto_list %}
-    <ul>
+    <ol>
     {% for c in crypto_list %}
-        <li>{{c.CurrencyFullName}}</li>
+        <li><a href="{%url 'crypto:crypto_detail' c.currency_id %}">{{c.CurrencyFullName}} {{c.CostInUsd}}$</a></li>
     {% endfor %}
-    </ul>
+    </ol>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
 </body>
 </html>
+
