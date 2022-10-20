@@ -1,5 +1,6 @@
 from django.utils import timezone
 from django.db import models
+
 # Create your models here.
 
 
@@ -12,13 +13,13 @@ class CryptoCurrency(models.Model):
     CirculatingSupply = models.BigIntegerField(default=0)
     UpdateDate = models.DateField(default=timezone.now())
     ChangePrice = models.FloatField(default=0)
-    #c = CryptoCurrency(CurrencyFullName=r['name']
+    # # c = CryptoCurrency(CurrencyFullName=r['name']
     # ,CurrencyAbbreviatedName=r['symbol'],
     # CostInUsd=r['current_price'],
-    # = r['market_cap'],
-    # CirculatingSupply=r['circulating_supply']
-    # ,UpdateDate=timezone.now(),ChangePrice = r['price_change_percentage_24h'])
+    # MarketCap= r['market_cap'],
+    # MarketCap = r['market_cap'],UpdateDate=timezone.now(),ChangePrice = r['price_change_percentage_24h'])
     def __str__(self):
         return self.CurrencyFullName
 
-# Create your models here.
+
+# Create your models here.c =

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="content-section">
+      <div class="media">
+        <div class="media-body">
+            <h2 class="account-heading">{{ user_profile.user }}</h2>
+            <h3>Favorite cryptocurrencies</h3>
+            {% for crypto in user_profile.crypto.all %}
+                <li><a href="{%url 'crypto:crypto_detail' crypto.currency_id%}">{{crypto}}</a> <a href="{% url 'accounts:delete_favorite_crypto' crypto.currency_id %}">(X)</a></li>
+            {% endfor %}
+        </div>
+      </div>
+        <form action="{% url 'accounts:add_favorite_crypto' %}" method="post">
+            {% csrf_token %}
+            <label for="">Enter cryptocurrency name</label>
+            <input type="text" name = "cryptocurrency_name">
+            <input type="submit" value="Save">
+        </form>
+
+        <a href="{% url 'crypto:Crypto' %}">Main page</a>
+    </div>
+</body>
+</html>
