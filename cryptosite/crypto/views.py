@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 def CryptoView (request):
-
+    #пофисксить проблему с апи если она не решится путем разделения запроса на нескольео страниц
 
     res = requests.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Ctether%2Cusd-coin%2Cbinancecoin%2Cripple%2Cbinance-usd%2Ccardano%2Csolana%2Cdogecoin%2Cpolkadot%2Cmatic-network%2Cshiba-inu%2Cdai%2Ctron%2Cstaked-ether%2Cuniswap%2Cwrapped-bitcoin%2Cavalanche-2%2Cokb%2Cleo-token%2Clitecoin%2Ccosmos%2Cchainlink%2Cethereum-classic%2Cftx-token%2Cstellar%2Cquant-network%2Ccrypto-com-chain%2Cmonero%2Cnear%2Calgorand%2Cbitcoin-cash%2Cterra-luna%2Cvechain%2Cflow%2Cfilecoin%2Chedera-hashgraph%2Capecoin%2Cfrax%2Celrond-erd-2%2Cchain-2%2Cinternet-computer%2Ctezos%2Caave%2Cthe-sandbox%2Cdecentraland%2Caxie-infinity%2Ceos%2Ctokenize-xchange%2Cmaker%2Clido-dao%2Chuobi-token%2Ctheta-token%2Captos%2Ccompound-usd-coin%2Cchiliz%2Ckucoin-shares%2Cbitcoin-cash-sv%2Cpaxos-standard%2Ctrue-usd%2Cusdd%2Cbittorrent%2Cecash%2Ciota%2Cethereum-pow-iou%2Czcash%2Cgatechain-token%2Ccdai%2Cpancakeswap-token%2Cthe-graph%2Chelium%2Chavven%2Cosmosis%2Cneo%2Ccompound-ether%2Cradix%2Cfantom%2Cevmos%2Carweave%2Cpax-gold%2Ccurve-dao-token%2Cnexo%2Cethereum-name-service%2Cbitdao%2Ccasper-network%2Ctrust-wallet-token%2Czilliqa%2Cfrax-share%2Cdash%2Cthorchain%2Cklay-token%2Cenjincoin%2Cxdce-crowd-sale%2Cbasic-attention-token%2Crocket-pool%2Ctether-gold%2Ckava%2Cblockstack%2Ccelsius-degree-token&order=market_cap_desc&per_page=100&page=1&sparkline=false')
     count = 0

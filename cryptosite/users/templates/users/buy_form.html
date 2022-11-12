@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="{% url 'accounts:add_crypto_assets' %}" method="post">
+      {% csrf_token %}
+      <div>
+          <label>Enter currency Name</label>
+          <input type="text" name="crypto_asset_name" required>
+      </div>
+      <br>
+      <div>
+          <label>Enter purchase price</label>
+          <input type="text" name="crypro_asset_purchase_price" required pattern="[0-9]+([,\.][0-9]+)?">
+      </div>
+      <br>
+      <div>
+          <label>Enter amount</label>
+          <input type="text" name="crypro_asset_amount" required pattern="[0-9]+([,\.][0-9]+)?">
+      </div>
+      <div>
+          <input type="submit" value="Add">
+      </div>
+    </form>
+
+
+</body>
+</html>

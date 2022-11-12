@@ -3,24 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% load user_extras %}
 </head>
 <body>
     <div class="content-section">
       <div class="media">
         <div class="media-body">
-            <h2 class="account-heading">{{ user_profile.user }}</h2>
+            <h1 class="account-heading">{{ user_profile.user }}</h1>
             <h3>Favorite cryptocurrencies</h3>
-            {% for crypto in user_profile.crypto.all %}
+            {% for crypto in user_profile.favorite_crypto.all %}
                 <li><a href="{%url 'crypto:crypto_detail' crypto.currency_id%}">{{crypto}}</a> <a href="{% url 'accounts:delete_favorite_crypto' crypto.currency_id %}">(X)</a></li>
             {% endfor %}
         </div>
       </div>
         <form action="{% url 'accounts:add_favorite_crypto' %}" method="post">
             {% csrf_token %}
-            <label for="">Enter cryptocurrency name</label>
+            <label>Enter cryptocurrency name</label>
             <input type="text" name = "cryptocurrency_name">
             <input type="submit" value="Save">
         </form>
+        <hr>
+        <div class="crypto_assets">
+            <div class="crypto_assets_information">
+                <h2>Crypto assets</h2>
+            <ul>
+                {% for crypto_assets in user_profile.cryptoassets_set.all %}
+                    <li>{{crypto_assets.crypto_currency_full_name}} {{crypto_assets.total_number_of_currency}}
+                        <a href="{%url 'accounts:additional_information_about_assets' crypto_assets.id%}">Buy information</a>
+                        Current price: {{crypto_dict|lookup:crypto_assets.crypto_currency_full_name|lookup:'current_price'}}
+                        Income: {{crypto_dict|lookup:crypto_assets.crypto_currency_full_name|lookup:'income'}}%
+                    </li>
+                {% endfor %}
+            </ul>
+            </div>
+            <a href="{% url 'accounts:add_new_crypto_assets'%}">Add new</a>
+            <hr>
+            <p></p>
+
+        </div>
 
         <a href="{% url 'crypto:Crypto' %}">Main page</a>
     </div>

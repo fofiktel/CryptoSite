@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="add_inf">
+        <h2>Buy</h2>
+        <ul>
+            {% for inf in crypto_asset.buyinformation_set.all %}
+                <li>{{inf.date_of_buying}} {{inf.purchase_price}} {{inf.amount_of_crypto}}</li>
+        {% endfor %}
+        </ul>
+
+        <h2>Sell</h2>
+        <ul>
+            {% for sale_inf in crypto_asset.soldinformation_set.all %}
+                <li>{{sale_inf.sold_date}} {{sale_inf.sold_price}} {{sale_inf.amount_sold_crypto}}</li>
+            {% endfor %}
+        </ul>
+
+
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="crypto_asset_name" value="{{crypto_asset.crypto_currency_full_name}}">
+           <div>
+              <label>Enter purchase price</label>
+              <input type="text" name="crypro_asset_purchase_price" required pattern="[0-9]+([,\.][0-9]+)?">
+           </div>
+           <br>
+          <div>
+              <label>Enter amount</label>
+              <input type="text" name="crypro_asset_amount" required pattern="[0-9]+([,\.][0-9]+)?">
+          </div>
+          <div>
+              <input type="submit" value="Buy" formaction="{% url 'accounts:add_crypto_assets' %}">
+              <input type="submit" value="Sell" formaction="{% url 'accounts:sell_crypto' %}">
+          </div>
+      </form>
+    </div>
+    <div>
+        <a href="http://127.0.0.1:8000/accounts/profile/">Return to profile</a>
+    </div>
+
+    </div>
+</body>
+</html>

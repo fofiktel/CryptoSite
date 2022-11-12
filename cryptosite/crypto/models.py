@@ -11,7 +11,7 @@ class CryptoCurrency(models.Model):
     CostInUsd = models.FloatField(default=0)
     MarketCap = models.BigIntegerField(default=0)
     CirculatingSupply = models.BigIntegerField(default=0)
-    UpdateDate = models.DateField(default=timezone.now())
+    UpdateDate = models.DateField(default=timezone.now)
     ChangePrice = models.FloatField(default=0)
     # # c = CryptoCurrency(CurrencyFullName=r['name']
     # ,CurrencyAbbreviatedName=r['symbol'],
